@@ -8,6 +8,7 @@ var box1, pig1;
 var backgroundImg,platform;
 var bird, slingShot;
 
+
 function preload() {
     backgroundImg = loadImage("sprites/bg.png");
 }
@@ -74,4 +75,11 @@ function mouseDragged(){
 
 function mouseReleased(){
     slingshot.fly();
+}
+
+function keyPressed(){
+	if(keyCode===32){
+		Matter.Body.setPosition(bird.body,{x:200,y:50});
+		slingshot.launch(bird.body);
+	}
 }
